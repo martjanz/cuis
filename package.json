@@ -1,0 +1,36 @@
+{
+  "name": "cuis",
+  "version": "1.0.0",
+  "description": "PostGIS user interface - Spatial data viewer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/martjanz/cuis.git"
+  },
+  "keywords": [
+    "postgis",
+    "sql",
+    "gis",
+    "viewer",
+    "editor",
+    "spatial",
+    "databases"
+  ],
+  "author": "Martín Anzorena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/martjanz/cuis/issues"
+  },
+  "homepage": "https://gitlab.com/martjanz/cuis#README",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
