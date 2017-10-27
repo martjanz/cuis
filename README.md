@@ -1,11 +1,11 @@
-# CUIS
+# CUIS
 
-## PostGIS Simple User Interface
+## PostGIS Simple User Interface
 
-### Development
+### Development
 
 `npm install --dev && npm dev`
 
-or, if using yarn
+or if using _yarn_
 
 `yarn install --dev && yarn dev`
