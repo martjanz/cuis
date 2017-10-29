@@ -13,10 +13,9 @@ class App extends Component {
       <div style={{ width: 'inherit', height: 'inherit' }}>
         <Menu>
           <Menu.Item header>Cuis</Menu.Item>
-          <Menu.Item name="about" />
-          <Menu.Item name="connect" />
+          <Menu.Item>A simple PostGIS query viewer</Menu.Item>
         </Menu>
-        <Grid stretched columns={2}>
+        <Grid columns={2}>
           <Grid.Column style={{ paddingRight: 0 }}>
             <Segment
               style={{

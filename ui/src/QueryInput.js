@@ -21,7 +21,7 @@ class QueryInput extends PureComponent {
           indentWithTabs: true
         }}
         autoFocus={true}
-        value={'SELECT * FROM polygons;'}
+        value={'-- Type your SQL query here. Then click Execute button.'}
         ref={this.editorRefCallback}
       />
     )
