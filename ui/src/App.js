@@ -8,11 +8,6 @@ import ReactLeafletMap from './ReactLeafletMap'
 import ResultTable from './ResultTable'
 
 class App extends Component {
-  editorRefCallback = ref => {
-    const cm = ref.getCodeMirror()
-    cm.setSize('100%', '100%')
-  }
-
   render() {
     return (
       <div style={{ width: 'inherit', height: 'inherit' }}>

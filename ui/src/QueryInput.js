@@ -5,6 +5,11 @@ import 'codemirror/mode/sql/sql'
 import 'codemirror/lib/codemirror.css'
 
 class QueryInput extends PureComponent {
+  editorRefCallback = ref => {
+    const cm = ref.getCodeMirror()
+    cm.setSize('100%', '100%')
+  }
+
   render() {
     return (
       <CodeMirror
