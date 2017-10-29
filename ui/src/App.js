@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import { Button, Grid, Icon, Menu, Segment, Table } from 'semantic-ui-react'
-
-import CodeMirror from 'react-codemirror'
-import 'codemirror/mode/sql/sql'
-import 'codemirror/lib/codemirror.css'
+import { Button, Grid, Icon, Menu, Segment } from 'semantic-ui-react'
 
 import 'semantic-ui-css/semantic.min.css'
 
+import QueryInput from './QueryInput'
 import ReactLeafletMap from './ReactLeafletMap'
+import ResultTable from './ResultTable'
 
 class App extends Component {
   editorRefCallback = ref => {
@@ -32,18 +30,7 @@ class App extends Component {
                 position: 'relative'
               }}
             >
-              <CodeMirror
-                options={{
-                  mode: 'text/x-pgsql',
-                  lineNumbers: true,
-                  htmlMode: true,
-                  matchClosing: true,
-                  indentWithTabs: true
-                }}
-                autoFocus={true}
-                value={'SELECT * FROM tabla;'}
-                ref={this.editorRefCallback}
-              />
+              <QueryInput />
             </Segment>
             <Segment compact style={{ width: '100%', padding: 0 }}>
               <Button style={{ width: 'inherit' }}>
@@ -61,42 +48,7 @@ class App extends Component {
                 marginBottom: 0
               }}
             >
-              <Table celled fixed singleLine compact size="small">
-                <Table.Header>
-                  <Table.Row>
-                    <Table.HeaderCell>Name</Table.HeaderCell>
-                    <Table.HeaderCell>Status</Table.HeaderCell>
-                    <Table.HeaderCell>Description</Table.HeaderCell>
-                  </Table.Row>
-                </Table.Header>
-
-                <Table.Body>
-                  <Table.Row>
-                    <Table.Cell>John</Table.Cell>
-                    <Table.Cell>Approved</Table.Cell>
-                    <Table.Cell
-                      title={[
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore',
-                        'et dolore magna aliqua.'
-                      ].join(' ')}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua.
-                    </Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>Jamie</Table.Cell>
-                    <Table.Cell>Approved</Table.Cell>
-                    <Table.Cell>Shorter description</Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>Jill</Table.Cell>
-                    <Table.Cell>Denied</Table.Cell>
-                    <Table.Cell>Shorter description</Table.Cell>
-                  </Table.Row>
-                </Table.Body>
-              </Table>
+              <ResultTable />
             </Segment>
           </Grid.Column>
           <Grid.Column stretched style={{ paddingLeft: 0 }}>
