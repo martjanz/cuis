@@ -4,7 +4,7 @@ import { Map, TileLayer } from 'react-leaflet'
 
 import 'leaflet/dist/leaflet.css'
 
-const position = [51.505, -0.09]
+const position = [-33.009, -58.5335]
 
 class ReactLeafletMap extends PureComponent {
   render() {
