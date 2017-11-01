@@ -16,7 +16,7 @@ class App extends Component {
           <Menu.Item>A simple PostGIS query viewer</Menu.Item>
         </Menu>
         <Grid columns={2}>
-          <Grid.Column style={{ paddingRight: 0 }}>
+          <Grid.Column style={{ paddingRight: 0, paddingLeft: '1.2rem' }}>
             <Segment
               style={{
                 padding: 0,
@@ -45,7 +45,10 @@ class App extends Component {
               <ResultTable />
             </Segment>
           </Grid.Column>
-          <Grid.Column stretched style={{ paddingLeft: 0 }}>
+          <Grid.Column
+            stretched
+            style={{ paddingLeft: 0, paddingRight: '1.2rem' }}
+          >
             <ReactLeafletMap />
           </Grid.Column>
         </Grid>
