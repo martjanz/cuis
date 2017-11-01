@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "codemirror": "^5.31.0",
-    "leaflet": "^1.2.0",
+    "d3-request": "^1.0.6",
+    "deck.gl": "^4.1.5",
+    "luma.gl": "^4.0.5",
     "react": "^16.0.0",
     "react-codemirror": "^1.0.0",
     "react-dom": "^16.0.0",
-    "react-leaflet": "^1.7.1",
+    "react-map-gl": "^3.1.1",
     "react-scripts": "1.0.14",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.75.1"

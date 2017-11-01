@@ -4,7 +4,7 @@ import { Button, Grid, Icon, Menu, Segment } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
 import QueryInput from './QueryInput'
-import ReactLeafletMap from './ReactLeafletMap'
+import Map from './Map'
 import ResultTable from './ResultTable'
 
 class App extends Component {
@@ -45,11 +45,8 @@ class App extends Component {
               <ResultTable />
             </Segment>
           </Grid.Column>
-          <Grid.Column
-            stretched
-            style={{ paddingLeft: 0, paddingRight: '1.2rem' }}
-          >
-            <ReactLeafletMap />
+          <Grid.Column style={{ paddingLeft: 0, paddingRight: '1.2rem' }}>
+            <Map />
           </Grid.Column>
         </Grid>
       </div>
