@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Icon } from 'semantic-ui-react'
+import { Shortcuts } from 'react-shortcuts'
 import CodeMirror from 'react-codemirror'
 import 'codemirror/mode/sql/sql'
 import 'codemirror/lib/codemirror.css'
@@ -13,6 +14,7 @@ class QueryInput extends PureComponent {
     }
 
     this.updateCode = this.updateCode.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   editorRefCallback = ref => {
@@ -24,13 +26,21 @@ class QueryInput extends PureComponent {
     this.setState({ code: newCode })
   }
 
+  _handleShortcuts(action, event) {
+    switch (action) {
+      case 'EXECUTE':
+        this.onSubmit()
+        break
+    }
+  }
+
   onSubmit() {
     this.props.onSubmit(this.state.code)
   }
 
   render() {
     return (
-      <div>
+      <Shortcuts name="QueryInput" handler={this._handleShortcuts.bind(this)}>
         <CodeMirror
           options={{
             mode: 'text/x-pgsql',
@@ -46,12 +56,12 @@ class QueryInput extends PureComponent {
         />
         <Button
           style={{ width: '100%', height: '35px' }}
-          onClick={this.onSubmit.bind(this)}
+          onClick={this.onSubmit}
         >
           <Icon name="play" />
-          Execute
+          Execute (F5 / ⌘+Enter)
         </Button>
-      </div>
+      </Shortcuts>
     )
   }
 }
