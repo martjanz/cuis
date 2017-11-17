@@ -1,9 +1,11 @@
 /* global window,document */
 import React, { Component } from 'react'
-import MapGL from 'react-map-gl'
-import DeckGLOverlay from './deckglOverlay.js'
+import MapGL, { NavigationControl } from 'react-map-gl'
+import DeckGLOverlay from './DeckglOverlay.js'
 
 import { json as requestJson } from 'd3-request'
+
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 // Set your mapbox token here
 const MAPBOX_TOKEN =
@@ -18,6 +20,7 @@ const colorScale = r => [r * 255, 140, 200 * (1 - r)]
 class Map extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       viewport: {
         ...DeckGLOverlay.defaultViewport,
@@ -61,6 +64,14 @@ class Map extends Component {
         onViewportChange={this._onViewportChange.bind(this)}
         mapboxApiAccessToken={MAPBOX_TOKEN}
       >
+        <div
+          className="map-nav-control"
+          style={{ position: 'absolute', right: 0 }}
+        >
+          <NavigationControl
+            onViewportChange={this._onViewportChange.bind(this)}
+          />
+        </div>
         <DeckGLOverlay
           viewport={viewport}
           data={data}
