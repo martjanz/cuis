@@ -12,7 +12,7 @@ Ctrl.executeSQL = query => {
       .then(data =>
         resolve({
           rowCount: data.length,
-          data: data.slice(0, 100)
+          data: data
         })
       )
       .catch(error => {
