@@ -15,7 +15,11 @@ Router.get('/sql', (req, res) => {
   if (typeof req.query.q === 'undefined')
     return res.status(400).json({ message: 'Missing querystring parameter: q' })
 
-  Ctrl.executeSQL(req.query.q).then(data => res.json(data))
+  Ctrl.executeSQL(req.query.q)
+    .then(result => res.json(result))
+    .catch(error =>
+      res.status(400).send({ message: 'SQL error: ' + error, sql: req.query.q })
+    )
 })
 
 module.exports = Router

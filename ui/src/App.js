@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Grid, Icon, Menu, Segment } from 'semantic-ui-react'
+import { Grid, Menu, Segment } from 'semantic-ui-react'
 
 import 'semantic-ui-css/semantic.min.css'
 
@@ -7,7 +7,23 @@ import QueryInput from './QueryInput'
 import Map from './Map'
 import ResultTable from './ResultTable'
 
+import * as api from './api'
+
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      data: null
+    }
+  }
+
+  getData(query) {
+    api.getData(query).then(result => {
+      this.setState({ data: result.data, rowCount: result.rowCount, query })
+    })
+  }
+
   render() {
     return (
       <div style={{ width: 'inherit', height: 'inherit' }}>
@@ -20,29 +36,23 @@ class App extends Component {
             <Segment
               style={{
                 padding: 0,
-                marginBottom: 0,
                 position: 'relative'
               }}
             >
-              <QueryInput />
-            </Segment>
-            <Segment compact style={{ width: '100%', padding: 0 }}>
-              <Button style={{ width: 'inherit' }}>
-                <Icon name="play" />
-                Execute
-              </Button>
+              <QueryInput onSubmit={this.getData.bind(this)} />
             </Segment>
             <Segment
               style={{
-                paddingTop: 0,
-                paddingBottom: 0,
                 paddingLeft: '5px',
                 paddingRight: '5px',
                 marginTop: 0,
                 marginBottom: 0
               }}
             >
-              <ResultTable />
+              <ResultTable
+                data={this.state.data}
+                rowCount={this.state.rowCount}
+              />
             </Segment>
           </Grid.Column>
           <Grid.Column style={{ paddingLeft: 0, paddingRight: '1.2rem' }}>
