@@ -1,19 +1,14 @@
 /* global window,document */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import MapGL, { NavigationControl } from 'react-map-gl'
 import DeckGLOverlay from './DeckglOverlay.js'
-
-import { json as requestJson } from 'd3-request'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 // Set your mapbox token here
 const MAPBOX_TOKEN =
   'pk.eyJ1IjoibWFydGphbnoiLCJhIjoiTjRrSElYSSJ9.yHVI12iSPY6coJaDWHO4xw' // eslint-disable-line
-
-// Source data GeoJSON
-const DATA_URL =
-  'https://raw.githubusercontent.com/uber-common/deck.gl-data/master/examples/geojson/vancouver-blocks.json' // eslint-disable-line
 
 const colorScale = r => [r * 255, 140, 200 * (1 - r)]
 
@@ -26,15 +21,8 @@ class Map extends Component {
         ...DeckGLOverlay.defaultViewport,
         width: 400,
         height: 400
-      },
-      data: null
-    }
-
-    requestJson(DATA_URL, (error, response) => {
-      if (!error) {
-        this.setState({ data: response })
       }
-    })
+    }
   }
 
   componentDidMount() {
@@ -56,7 +44,8 @@ class Map extends Component {
   }
 
   render() {
-    const { viewport, data } = this.state
+    const { viewport } = this.state
+    const { data } = this.props
 
     return (
       <MapGL
@@ -80,6 +69,14 @@ class Map extends Component {
       </MapGL>
     )
   }
+}
+
+Map.propTypes = {
+  data: PropTypes.object
+}
+
+Map.defaultProps = {
+  data: []
 }
 
 export default Map

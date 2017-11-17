@@ -20,7 +20,8 @@ class App extends Component {
     super(props)
 
     this.state = {
-      data: null
+      tableData: [],
+      mapData: null
     }
   }
 
@@ -30,11 +31,31 @@ class App extends Component {
 
   getData(query) {
     api.getData(query).then(result => {
-      this.setState({ data: result.data, rowCount: result.rowCount, query })
+      let mapData
+      let tableData = []
+
+      if (result.data && result.data.length > 0) {
+        if (result.data[0].hasOwnProperty('geojson')) {
+          mapData = { type: 'FeatureCollection', features: [] }
+          result.data.forEach(row => {
+            mapData.features.push({
+              type: 'Feature',
+              geometry: JSON.parse(row.geojson)
+            })
+            delete row.geojson
+            tableData.push(row)
+          })
+        } else tableData = result.data
+      }
+
+      console.log('mapdata getdata', mapData)
+
+      this.setState({ tableData, mapData, rowCount: result.rowCount, query })
     })
   }
 
   render() {
+    console.log('mapdata', this.state.mapData)
     return (
       <div style={{ width: 'inherit', height: 'inherit' }}>
         <Menu>
@@ -60,13 +81,13 @@ class App extends Component {
               }}
             >
               <ResultTable
-                data={this.state.data}
+                data={this.state.tableData}
                 rowCount={this.state.rowCount}
               />
             </Segment>
           </Grid.Column>
           <Grid.Column style={{ paddingLeft: 0, paddingRight: '1.2rem' }}>
-            <Map />
+            <Map data={this.state.mapData} />
           </Grid.Column>
         </Grid>
       </div>
