@@ -28,7 +28,8 @@
   },
   "homepage": "https://gitlab.com/martjanz/cuis#README",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "pg-promise": "^7.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
