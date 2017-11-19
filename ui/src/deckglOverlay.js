@@ -22,22 +22,20 @@ class DeckGLOverlay extends Component {
       maxZoom: 16,
       pitch: 45,
       bearing: 0
-    };
+    }
   }
 
   _initialize(gl) {
     setParameters(gl, {
       depthTest: true,
       depthFunc: gl.LEQUAL
-    });
+    })
   }
 
   render() {
-    const {viewport, data, colorScale} = this.props;
+    const { viewport, data, colorScale } = this.props
 
-    if (!data) {
-      return null;
-    }
+    if (!data) return null
 
     const layer = new GeoJsonLayer({
       id: 'geojson',
@@ -57,8 +55,12 @@ class DeckGLOverlay extends Component {
     });
 
     return (
-      <DeckGL {...viewport} layers={ [layer] } onWebGLInitialized={this._initialize} />
-    );
+      <DeckGL
+        {...viewport}
+        layers={[layer]}
+        onWebGLInitialized={this._initialize}
+      />
+    )
   }
 }
 
@@ -68,4 +70,5 @@ DeckGLOverlay.propTypes = {
   onHover: PropTypes.func,
   viewport: PropTypes.object.isRequired
 }
+
 export default DeckGLOverlay
