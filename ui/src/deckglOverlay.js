@@ -33,26 +33,23 @@ class DeckGLOverlay extends Component {
   }
 
   render() {
-    const { viewport, data, colorScale } = this.props
+    const { viewport, data } = this.props
 
     if (!data) return null
 
     const layer = new GeoJsonLayer({
-      id: 'geojson',
+      id: 'geojson-layer',
       data,
-      opacity: 0.8,
-      stroked: false,
       filled: true,
-      extruded: true,
-      wireframe: true,
       fp64: true,
-      getElevation: f => Math.sqrt(f.properties.valuePerSqm) * 10,
-      getFillColor: f => colorScale(f.properties.growth),
-      getLineColor: f => [255, 255, 255],
+      getFillColor: this.props.colorScale,
       lightSettings: LIGHT_SETTINGS,
       pickable: Boolean(this.props.onHover),
-      onHover: this.props.onHover
-    });
+      opacity: 0.8,
+      onHover: this.props.onHover,
+      stroked: false,
+      wireframe: true
+    })
 
     return (
       <DeckGL
