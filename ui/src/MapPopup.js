@@ -5,8 +5,8 @@ import { List } from 'semantic-ui-react'
 
 class MapPopup extends PureComponent {
   render() {
-    const content = Object.keys(this.props.data).map(key => (
-      <List.Item>
+    const content = Object.keys(this.props.data).map((key, idx) => (
+      <List.Item key={idx}>
         <List.Content>
           <List.Header>{key}</List.Header>
           <List.Description>

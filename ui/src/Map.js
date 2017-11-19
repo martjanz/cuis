@@ -50,7 +50,14 @@ class Map extends Component {
   }
 
   _handleHover(info) {
-    if (!info || !info.object) return
+    // When hovering outside geometries no info is provided.
+    if (!info || !info.object) {
+      this.setState({
+        coordinates: null,
+        info: null
+      })
+      return
+    }
 
     this.setState({
       coordinates: info.lngLat,
