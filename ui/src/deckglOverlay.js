@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
-import {setParameters} from 'luma.gl';
-import DeckGL, {GeoJsonLayer} from 'deck.gl';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+import { setParameters } from 'luma.gl'
+import DeckGL, { GeoJsonLayer } from 'deck.gl'
 
 const LIGHT_SETTINGS = {
   lightsPosition: [-125, 50.5, 5000, -122.8, 48.5, 8000],
@@ -9,10 +11,9 @@ const LIGHT_SETTINGS = {
   specularRatio: 0.3,
   lightsStrength: [1.0, 0.0, 2.0, 0.0],
   numberOfLights: 2
-};
+}
 
-export default class DeckGLOverlay extends Component {
-
+class DeckGLOverlay extends Component {
   static get defaultViewport() {
     return {
       latitude: 49.254,
@@ -60,3 +61,11 @@ export default class DeckGLOverlay extends Component {
     );
   }
 }
+
+DeckGLOverlay.propTypes = {
+  colorScale: PropTypes.func.isRequired,
+  data: PropTypes.object,
+  onHover: PropTypes.func,
+  viewport: PropTypes.object.isRequired
+}
+export default DeckGLOverlay

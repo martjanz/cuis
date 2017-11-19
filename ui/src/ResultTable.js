@@ -37,7 +37,7 @@ class ResultTable extends PureComponent {
 
 ResultTable.propTypes = {
   data: PropTypes.array,
-  rowCount: PropTypes.int
+  rowCount: PropTypes.number
 }
 
 export default ResultTable

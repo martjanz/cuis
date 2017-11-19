@@ -31,6 +31,8 @@ class QueryInput extends PureComponent {
       case 'EXECUTE':
         this.onSubmit()
         break
+      default:
+        break
     }
   }
 
