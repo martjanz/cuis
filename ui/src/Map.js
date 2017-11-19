@@ -12,7 +12,11 @@ import MapPopup from './MapPopup.js'
 const MAPBOX_TOKEN =
   'pk.eyJ1IjoibWFydGphbnoiLCJhIjoiTjRrSElYSSJ9.yHVI12iSPY6coJaDWHO4xw' // eslint-disable-line
 
-const colorScale = r => [r * 255, 140, 200 * (1 - r)]
+const colorScale = r => [
+  Math.random() * 255,
+  Math.random() * 255,
+  Math.random() * 255
+]
 
 class Map extends Component {
   constructor(props) {
