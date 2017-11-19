@@ -4,6 +4,7 @@ import { Grid, Menu, Segment } from 'semantic-ui-react'
 
 import 'semantic-ui-css/semantic.min.css'
 
+import AboutModal from './AboutModal'
 import QueryInput from './QueryInput'
 import Map from './Map'
 import ResultTable from './ResultTable'
@@ -20,8 +21,9 @@ class App extends Component {
     super(props)
 
     this.state = {
-      tableData: [],
-      mapData: null
+      aboutModalVisible: false,
+      mapData: null,
+      tableData: []
     }
   }
 
@@ -52,12 +54,20 @@ class App extends Component {
     })
   }
 
+  _toggleAboutModal() {
+    this.setState({ aboutModalVisible: !this.state.aboutModalVisible })
+  }
+
   render() {
+    const aboutModal = this.state.aboutModalVisible && <AboutModal />
+
     return (
       <div style={{ width: 'inherit', height: 'inherit' }}>
+        {aboutModal}
         <Menu>
-          <Menu.Item header>Cuis</Menu.Item>
-          <Menu.Item>A simple PostGIS query viewer</Menu.Item>
+          <Menu.Item header onClick={this._toggleAboutModal.bind(this)}>
+            Cuis
+          </Menu.Item>
         </Menu>
         <Grid columns={2}>
           <Grid.Column style={{ paddingRight: 0, paddingLeft: '1.2rem' }}>
