@@ -1,14 +1,18 @@
 const Express = require('express')
 const Path = require('path')
+const bodyParser = require('body-parser')
 
 const router = require('./routes')
 
 const app = Express()
 
 // TODO: move to config
+// Default port
 const config = {
   port: 4000
 }
+
+app.use(bodyParser.json()) // for parsing application/json
 
 // Health check and API docs endpoint
 app.use('/api', router)

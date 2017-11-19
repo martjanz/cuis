@@ -11,11 +11,12 @@ Router.get('/heartbeat', (req, res) => {
   })
 })
 
-Router.get('/sql', (req, res) => {
-  if (typeof req.query.q === 'undefined')
-    return res.status(400).json({ message: 'Missing querystring parameter: q' })
+Router.post('/sql', (req, res) => {
+  console.log('req', req.body)
+  if (typeof req.query.q === 'undefined' || typeof req.body === 'undefined')
+    return res.status(400).json({ message: 'Missing parameters.' })
 
-  Ctrl.executeSQL(req.query.q)
+  Ctrl.executeSQL(req.query.q, req.body)
     .then(result => res.json(result))
     .catch(error =>
       res.status(400).send({ message: 'SQL error: ' + error, sql: req.query.q })
