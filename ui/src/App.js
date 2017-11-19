@@ -48,14 +48,11 @@ class App extends Component {
         } else tableData = result.data
       }
 
-      console.log('mapdata getdata', mapData)
-
       this.setState({ tableData, mapData, rowCount: result.rowCount, query })
     })
   }
 
   render() {
-    console.log('mapdata', this.state.mapData)
     return (
       <div style={{ width: 'inherit', height: 'inherit' }}>
         <Menu>
@@ -87,7 +84,10 @@ class App extends Component {
             </Segment>
           </Grid.Column>
           <Grid.Column style={{ paddingLeft: 0, paddingRight: '1.2rem' }}>
-            <Map data={this.state.mapData} />
+            <Map
+              geojson={this.state.mapData}
+              tableData={this.state.tableData}
+            />
           </Grid.Column>
         </Grid>
       </div>
