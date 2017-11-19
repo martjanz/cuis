@@ -48,7 +48,9 @@ class DeckGLOverlay extends Component {
       opacity: 0.8,
       onHover: this.props.onHover,
       stroked: false,
-      wireframe: true
+      wireframe: true,
+      // Point related settings
+      pointRadiusMinPixels: 2
     })
 
     return (
