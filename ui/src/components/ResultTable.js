@@ -28,7 +28,11 @@ class ResultTable extends PureComponent {
           <Table.Body>{rows}</Table.Body>
         </Table>
         <Message>
-          {this.props.data.length} rows displayed ({this.props.rowCount} total)
+          {this.props.data.length}{' '}
+          {this.props.data.length !== 1 ? 'rows' : 'row'} displayed ({
+            this.props.rowCount
+          }{' '}
+          total)
         </Message>
       </div>
     )

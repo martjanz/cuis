@@ -10,9 +10,9 @@ import Map from './Map'
 import ResultTable from './ResultTable'
 import { ShortcutManager } from 'react-shortcuts'
 
-import * as api from './api'
+import * as api from '../api'
 
-import keymap from './keymap'
+import keymap from '../keymap'
 
 const shortcutManager = new ShortcutManager(keymap)
 

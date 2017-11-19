@@ -16,9 +16,9 @@ const LIGHT_SETTINGS = {
 class DeckGLOverlay extends Component {
   static get defaultViewport() {
     return {
-      latitude: 49.254,
-      longitude: -123.13,
-      zoom: 11,
+      latitude: -33.827,
+      longitude: -57.969,
+      zoom: 7,
       maxZoom: 16,
       pitch: 45,
       bearing: 0

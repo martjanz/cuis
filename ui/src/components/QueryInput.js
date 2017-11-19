@@ -10,7 +10,9 @@ class QueryInput extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      code: '-- Type your SQL query here. Then click Execute button.\n'
+      code:
+        '-- Type your SQL query here. Then click Execute button.\n' +
+        'select *, st_asgeojson(geom) as geojson from cuencas;'
     }
 
     this.updateCode = this.updateCode.bind(this)
