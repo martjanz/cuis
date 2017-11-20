@@ -1,9 +1,16 @@
 const pgp = require('pg-promise')()
 
 const Ctrl = {}
+const dbConnections = []
 
 Ctrl.executeSQL = (query, dbConfig) => {
-  const db = pgp(dbConfig)
+  // Cached db connections. Keeps only one instance for every dbConfig
+  if (!dbConnections[JSON.stringify(dbConfig)]) {
+    db = pgp(dbConfig)
+    dbConnections[JSON.stringify(dbConfig)] = db
+  } else {
+    db = dbConnections[JSON.stringify(dbConfig)]
+  }
 
   return new Promise((resolve, reject) => {
     db
