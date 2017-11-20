@@ -1,7 +1,9 @@
 import axios from 'axios'
 
-export const getData = query => {
-  return axios.get('/api/sql?q=' + encodeURIComponent(query)).then(response => {
-    return response.data
-  })
+export const getData = (dbConfig, query) => {
+  return axios
+    .post('/api/sql?q=' + encodeURIComponent(query), dbConfig)
+    .then(response => {
+      return response.data
+    })
 }
