@@ -12,7 +12,6 @@ Router.get('/heartbeat', (req, res) => {
 })
 
 Router.post('/sql', (req, res) => {
-  console.log('req', req.body)
   if (typeof req.query.q === 'undefined' || typeof req.body === 'undefined')
     return res.status(400).json({ message: 'Missing parameters.' })
 
