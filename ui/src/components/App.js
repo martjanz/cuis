@@ -4,7 +4,7 @@ import { Button, Grid, Menu, Segment } from 'semantic-ui-react'
 
 import 'semantic-ui-css/semantic.min.css'
 
-import AboutModal from './AboutModal'
+import About from './About'
 import DbConfig from './DbConfig'
 import Map from './Map'
 import QueryInput from './QueryInput'
@@ -50,6 +50,7 @@ class App extends Component {
 
       if (result.data && result.data.length > 0) {
         if (result.data[0].hasOwnProperty('geojson')) {
+          // Handmade GeoJSON structure
           mapData = { type: 'FeatureCollection', features: [] }
           result.data.forEach(row => {
             mapData.features.push({

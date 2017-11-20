@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { Modal } from 'semantic-ui-react'
 
 class AboutModal extends PureComponent {
   render() {
-    console.log('AboutModal!')
     return (
-      <Modal defaultOpen={true} size="tiny">
+      <Modal open={this.props.isOpen} size="tiny">
         <Modal.Header>About Cuis</Modal.Header>
         <Modal.Content>
           This is a simple PostGIS query viewer built using{' '}
@@ -19,6 +19,10 @@ class AboutModal extends PureComponent {
       </Modal>
     )
   }
+}
+
+AboutModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired
 }
 
 export default AboutModal
