@@ -37,5 +37,7 @@ deploy:
   file:
     - ./releases/cuis-linux-x64
     - ./releases/cuis-darwin-x64
+  skip_cleanup: true
   on:
     repo: martjanz/cuis
+    tags: true
