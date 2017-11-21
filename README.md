@@ -10,10 +10,6 @@ We provide two ways to use Cuis. One is a previously built desktop application,
 batteries included. The other one is a local client-server Node.js Express
 application.
 
-### Desktop app
-
-Download zip from [here](https://github.com/martjanz/cuis/releases).
-
 ### Local client-server
 
 ```bash
