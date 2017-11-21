@@ -1,6 +1,7 @@
 const Express = require('express')
 const Path = require('path')
 const bodyParser = require('body-parser')
+const open = require('open')
 
 const router = require('./routes')
 
@@ -26,6 +27,8 @@ app.use((req, res) => {
 })
 
 app.listen(config.port, onListen)
+
+if (process.env.OPEN_BROWSER) open('http://localhost:' + config.port)
 
 function onListen() {
   console.log(
