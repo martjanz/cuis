@@ -4,7 +4,9 @@
   "description": "PostGIS user interface - Spatial data viewer",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "desktop": "electron .",
+    "build": "yarn build-server && yarn build-ui",
+    "serve": "cd server && OPEN_BROWSER=true yarn start",
     "build-server": "yarn --cwd server/",
     "build-ui": "cd ui && yarn && yarn build && cd ..",
     "package-osx":
@@ -20,15 +22,7 @@
     "type": "git",
     "url": "git+https://gitlab.com/martjanz/cuis.git"
   },
-  "keywords": [
-    "postgis",
-    "sql",
-    "gis",
-    "viewer",
-    "editor",
-    "spatial",
-    "databases"
-  ],
+  "keywords": ["gis", "gui", "postgis", "postgres", "sql"],
   "author": "Martín Anzorena",
   "license": "MIT",
   "bugs": {
