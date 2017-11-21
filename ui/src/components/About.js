@@ -5,16 +5,26 @@ import { Modal } from 'semantic-ui-react'
 class AboutModal extends PureComponent {
   render() {
     return (
-      <Modal open={this.props.isOpen} size="tiny">
-        <Modal.Header>About Cuis</Modal.Header>
+      <Modal open={this.props.isOpen} onClose={this.props.onClose} size="tiny">
+        <Modal.Header>
+          About Cuis <small>v1.0</small>
+        </Modal.Header>
         <Modal.Content>
-          This is a simple PostGIS query viewer built using{' '}
-          <a href="https://nodejs.org/en/">Node</a>,{' '}
-          <a href="https://reactjs.org/">React</a> and{' '}
-          <a href="https://uber.github.io/deck.gl/#/">Deck.gl</a>.<br />
-          <br />
-          Source code available on{' '}
-          <a href="https://gitlab.com/martjanz/cuis">GitLab</a>
+          <p>
+            This is a simple PostGIS query tool built using{' '}
+            <a href="https://nodejs.org/en/">Node</a>,{' '}
+            <a href="https://reactjs.org/">React</a> and{' '}
+            <a href="https://uber.github.io/deck.gl/#/">Deck.gl</a>.<br />
+          </p>
+          <p>
+            Source code available on{' '}
+            <a href="https://gitlab.com/martjanz/cuis">GitLab</a>.
+          </p>
+          <p>
+            Feel free to report bugs, suggest new features, improve
+            documentation or submit you own Pull Requests. Hope to see you
+            there!
+          </p>
         </Modal.Content>
       </Modal>
     )
@@ -22,7 +32,8 @@ class AboutModal extends PureComponent {
 }
 
 AboutModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired
 }
 
 export default AboutModal

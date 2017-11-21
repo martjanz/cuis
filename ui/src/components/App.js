@@ -6,6 +6,7 @@ import 'semantic-ui-css/semantic.min.css'
 
 import About from './About'
 import DbConfig from './DbConfig'
+import Help from './Help'
 import Map from './Map'
 import QueryInput from './QueryInput'
 import ResultTable from './ResultTable'
@@ -24,6 +25,7 @@ class App extends Component {
     this.state = {
       aboutIsOpen: false,
       dbConfigIsOpen: false,
+      helpIsOpen: false,
       mapData: null,
       tableData: [],
       // Default dbconfig values
@@ -36,6 +38,9 @@ class App extends Component {
       }
     }
 
+    this._toggleAboutModal = this._toggleAboutModal.bind(this)
+    this._toggleDbConfigModal = this._toggleDbConfigModal.bind(this)
+    this._toggleHelpModal = this._toggleHelpModal.bind(this)
     this._saveDbConfig = this._saveDbConfig.bind(this)
   }
 
@@ -80,30 +85,36 @@ class App extends Component {
     this.setState({ dbConfigIsOpen: !this.state.dbConfigIsOpen })
   }
 
+  _toggleHelpModal() {
+    this.setState({ helpIsOpen: !this.state.helpIsOpen })
+  }
+
   render() {
     return (
       <div style={{ width: 'inherit', height: 'inherit' }}>
-        <About isOpen={this.state.aboutIsOpen} />
+        <About
+          isOpen={this.state.aboutIsOpen}
+          onClose={this._toggleAboutModal}
+        />
         <DbConfig
           isOpen={this.state.dbConfigIsOpen}
           config={this.state.dbConfig}
-          onClose={this._toggleDbConfigModal.bind(this)}
+          onClose={this._toggleDbConfigModal}
           onSave={this._saveDbConfig}
         />
+        <Help isOpen={this.state.helpIsOpen} onClose={this._toggleHelpModal} />
         <Menu>
-          <Menu.Item header onClick={this._toggleAboutModal.bind(this)}>
+          <Menu.Item header onClick={this._toggleAboutModal}>
             Cuis
           </Menu.Item>
           <Menu.Item>
-            <Button
-              basic
-              color="green"
-              onClick={this._toggleDbConfigModal.bind(this)}
-            >
-              Connect
+            <Button onClick={this._toggleDbConfigModal}>
+              Connection settings...
             </Button>
           </Menu.Item>
-          <Menu.Item position="right">Help</Menu.Item>
+          <Menu.Item position="right" onClick={this._toggleHelpModal}>
+            Help
+          </Menu.Item>
         </Menu>
         <Grid columns={2}>
           <Grid.Column style={{ paddingRight: 0, paddingLeft: '1.2rem' }}>

@@ -36,7 +36,7 @@ class DbConfig extends PureComponent {
             <Form.Input
               name="port"
               label="Port"
-              placeholder="port"
+              placeholder="5432"
               type="number"
               defaultValue={config.port}
               required
