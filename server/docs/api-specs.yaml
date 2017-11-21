@@ -1,0 +1,43 @@
+swagger: '2.0'
+info:
+  description: Cuis API docs.
+  version: 0.1.0
+  title: Cuis
+  contact:
+    email: martin.anzorena@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: localhost
+basePath: /
+schemes:
+  - http
+paths:
+  /heartbeat:
+    get:
+      tags:
+        - status
+      summary: Dumb endpoint, just to check if the server is alive.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+  /sql:
+    get:
+      tags:
+        - sql
+      parameters:
+        - in: query
+          name: q
+          type: string
+          required: true
+          description: SQL query to execute
+      summary: SQL endpoint
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+        400:
+          description: SQL error

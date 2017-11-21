@@ -1,0 +1,30 @@
+sudo: required
+matrix:
+  include:
+    - os: osx
+      node_js: "5.9"
+    - os: linux
+      env: CXX=g++-4.8
+      node_js: "5.9"
+  allow_failures:
+    - os: osx
+language: node_js
+addons:
+  artifacts:
+    paths:
+    - ./releases/
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+script:
+  - yarn build-server
+  - yarn build-ui
+  - ls -d ui/* | grep -v build | xargs rm -rf
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then yarn package-osx; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then yarn package-linux; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then zip -r ./releases/cuis-darwin-x64.zip ./releases/cuis-darwin-x64; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then zip -r ./releases/cuis-linux-x64.zip ./releases/cuis-linux-x64; fi
+  - rm -rf ./releases/cuis-linux-x64
+  - rm -rf ./releases/cuis-darwin-x64

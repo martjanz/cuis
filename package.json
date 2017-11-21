@@ -2,35 +2,37 @@
   "name": "cuis",
   "version": "1.0.0",
   "description": "PostGIS user interface - Spatial data viewer",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "desktop": "electron .",
+    "build": "yarn build-server && yarn build-ui",
+    "serve": "cd server && OPEN_BROWSER=true yarn start",
+    "build-server": "yarn --cwd server/",
+    "build-ui": "cd ui && yarn && yarn build && cd ..",
+    "package-osx":
+      "electron-packager ./ cuis --out=./releases --platform=darwin --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
+    "package-osx":
+      "electron-packager ./ cuis --out=./releases --platform=darwin --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
+    "package-linux":
+      "electron-packager ./ cuis --out=./releases --platform=linux --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
+    "package-windows":
+      "electron-packager ./ cuis --out=./releases --platform=win32 --arch=x64 --icon=./cuis.icns --overwrite --asar --prune"
   },
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/martjanz/cuis.git"
   },
-  "keywords": [
-    "postgis",
-    "sql",
-    "gis",
-    "viewer",
-    "editor",
-    "spatial",
-    "databases"
-  ],
+  "keywords": ["gis", "gui", "postgis", "postgres", "sql"],
   "author": "Martín Anzorena",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/martjanz/cuis/issues"
   },
   "homepage": "https://gitlab.com/martjanz/cuis#README",
   "dependencies": {
-    "express": "^4.16.2"
+    "electron": "^1.7.9"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "electron-packager": "^10.1.0"
   }
 }

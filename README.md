@@ -1,11 +1,40 @@
-# CUIS
+# Cuis
 
-## PostGIS Simple User Interface
+Cuis aims to be a simple tool to visualize PostGIS queries.
 
-### Development
+![Demo video](resources/demo.gif)
 
-`npm install --dev && npm dev`
+## Install
 
-or if using _yarn_
+We provide two ways to use Cuis. One is a previously built desktop application,
+batteries included. The other one is a local client-server Node.js Express
+application.
 
-`yarn install --dev && yarn dev`
+### Desktop app
+
+Download zip from [here](https://github.com/martjanz/cuis/releases).
+
+### Local client-server
+
+```bash
+git clone https://github.com/martjanz/cuis
+cd cuis
+yarn build
+yarn serve
+```
+
+## Development setup
+
+### Backend server (Node.js - Express)
+
+```bash
+cd server
+yarn start
+```
+
+### Frontend server (React)
+
+```bash
+cd server
+yarn start
+```

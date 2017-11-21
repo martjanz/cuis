@@ -3,20 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.1",
     "codemirror": "^5.31.0",
-    "leaflet": "^1.2.0",
+    "deck.gl": "^4.1.5",
+    "luma.gl": "^4.0.5",
     "react": "^16.0.0",
     "react-codemirror": "^1.0.0",
     "react-dom": "^16.0.0",
-    "react-leaflet": "^1.7.1",
+    "react-map-gl": "^3.1.1",
     "react-scripts": "1.0.14",
+    "react-shortcuts": "^2.0.0",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.75.1"
+    "semantic-ui-react": "^0.75.1",
+    "turf": "^3.0.14",
+    "viewport-mercator-project": "^4.1.1"
   },
+  "author": "Martín Anzorena",
+  "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:4000/"
 }

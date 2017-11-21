@@ -1,14 +1,19 @@
 const Express = require('express')
 const Path = require('path')
+const bodyParser = require('body-parser')
+const open = require('open')
 
 const router = require('./routes')
 
 const app = Express()
 
 // TODO: move to config
+// Default port
 const config = {
   port: 4000
 }
+
+app.use(bodyParser.json()) // for parsing application/json
 
 // Health check and API docs endpoint
 app.use('/api', router)
@@ -22,6 +27,8 @@ app.use((req, res) => {
 })
 
 app.listen(config.port, onListen)
+
+if (process.env.OPEN_BROWSER) open('http://localhost:' + config.port)
 
 function onListen() {
   console.log(
