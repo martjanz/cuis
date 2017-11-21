@@ -14,20 +14,31 @@ class ResultTable extends PureComponent {
 
     const rows = this.props.data.map((row, idx) => {
       const cells = Object.keys(row).map((cell, idx) => (
-        <Table.Cell key={'cell-' + idx}>{row[cell]}</Table.Cell>
+        <Table.Cell key={'cell-' + idx}>{row[cell] || '<NULL>'}</Table.Cell>
       ))
       return <Table.Row key={'row-' + idx}>{cells}</Table.Row>
     })
 
     return (
-      <div>
-        <Table celled fixed singleLine compact size="small">
+      <div style={{}}>
+        <Table
+          celled
+          fixed
+          singleLine
+          compact
+          size="small"
+          style={{
+            display: 'block',
+            overflow: 'auto',
+            height: window.innerHeight * 0.4
+          }}
+        >
           <Table.Header>
             <Table.Row>{columns}</Table.Row>
           </Table.Header>
           <Table.Body>{rows}</Table.Body>
         </Table>
-        <Message>
+        <Message size="tiny">
           {this.props.data.length}{' '}
           {this.props.data.length !== 1 ? 'rows' : 'row'} displayed ({
             this.props.rowCount
