@@ -2,8 +2,11 @@
   "name": "cuis",
   "version": "1.0.0",
   "description": "PostGIS user interface - Spatial data viewer",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "start": "electron .",
+    "package-osx":
+      "electron-packager ./ cuis --out=./releases --platform=darwin --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune"
   },
   "repository": {
     "type": "git",
@@ -25,7 +28,9 @@
   },
   "homepage": "https://gitlab.com/martjanz/cuis#README",
   "dependencies": {
+    "electron": "^1.7.9"
   },
   "devDependencies": {
+    "electron-packager": "^10.1.0"
   }
 }
