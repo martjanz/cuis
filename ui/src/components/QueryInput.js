@@ -21,7 +21,7 @@ class QueryInput extends PureComponent {
 
   editorRefCallback = ref => {
     const cm = ref.getCodeMirror()
-    cm.setSize('100%', '100%')
+    cm.setSize('100%', window.innerHeight * 0.3)
   }
 
   updateCode(newCode) {
@@ -57,6 +57,7 @@ class QueryInput extends PureComponent {
           value={this.state.code}
           ref={this.editorRefCallback}
           onChange={this.updateCode}
+          style={{ maxHeight: '25%' }}
         />
         <Button
           style={{ width: '100%', height: '35px' }}

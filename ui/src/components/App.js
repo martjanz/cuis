@@ -157,14 +157,19 @@ class App extends Component {
           </Menu.Item>
         </Menu>
         <Grid columns={2}>
-          <Grid.Column style={{ paddingRight: 0, paddingLeft: '1.2rem' }}>
+          <Grid.Column
+            style={{ paddingBottom: 0, paddingRight: 0, paddingLeft: '1.2rem' }}
+          >
             <Segment
               style={{
                 padding: 0,
                 position: 'relative'
               }}
             >
-              <QueryInput onSubmit={this.getData.bind(this)} />
+              <QueryInput
+                style={{ maxHeight: '30%' }}
+                onSubmit={this.getData}
+              />
             </Segment>
             <Segment
               style={{
@@ -177,7 +182,9 @@ class App extends Component {
               {resultPanel}
             </Segment>
           </Grid.Column>
-          <Grid.Column style={{ paddingLeft: 0, paddingRight: '1.2rem' }}>
+          <Grid.Column
+            style={{ paddingBottom: 0, paddingLeft: 0, paddingRight: '1.2rem' }}
+          >
             <Map
               geojson={this.state.mapData}
               tableData={this.state.tableData}
