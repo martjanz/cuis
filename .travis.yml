@@ -1,13 +1,13 @@
 sudo: required
 matrix:
   include:
-    - os: osx
-      node_js: "8"
-    - os: linux
-      env: CXX=g++-4.8
-      node_js: "8"
+  - os: osx
+    node_js: '8'
+  - os: linux
+    env: CXX=g++-4.8
+    node_js: '8'
   allow_failures:
-    - os: osx
+  - os: osx
 language: node_js
 addons:
   artifacts:
@@ -15,16 +15,27 @@ addons:
     - ./releases/
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+    - g++-4.8
 script:
-  - yarn build-server
-  - yarn build-ui
-  - ls -d ui/* | grep -v build | xargs rm -rf
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then yarn package-osx; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then yarn package-linux; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then zip -r ./releases/cuis-darwin-x64.zip ./releases/cuis-darwin-x64; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then zip -r ./releases/cuis-linux-x64.zip ./releases/cuis-linux-x64; fi
-  - rm -rf ./releases/cuis-linux-x64
-  - rm -rf ./releases/cuis-darwin-x64
+- yarn build-server
+- yarn build-ui
+- ls -d ui/* | grep -v build | xargs rm -rf
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then yarn package-osx; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then yarn package-linux; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then zip -r ./releases/cuis-darwin-x64.zip
+  ./releases/cuis-darwin-x64; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then zip -r ./releases/cuis-linux-x64.zip
+  ./releases/cuis-linux-x64; fi
+- rm -rf ./releases/cuis-linux-x64
+- rm -rf ./releases/cuis-darwin-x64
+deploy:
+  provider: releases
+  api_key:
+    secure: WxuLswlS6v3INJV8mxwa64JYsPQnjbGyz6co+d7h95CH/UyX0Z1gysxYjpNk9Jetv35GA6jVcK9TyEZKYf3FxTrw7HLkYOkBT7r4c2jPtdTf2N43Ez6ni/ATFcEnLJ7OoLTQ4o44oKKmJeHlQ0Ku8EznBU5N/zdfdtBhyLAcxmQImyqssOOm55XdZxLQWYGUjd8NJbyDNtEOp12wDeiE7COOzIE1w88kGQQ9BhQSO0XRGiphl2Am2uLs+ntfAFNbLMiVg5exC+zGrEWfgtbRKt1oCDEvm0dtVmgEQCkVXCiLF2po6FrRMwTMOm4NY1/b3PwNZcbdj0Nu+M1ZFHLoVqcrHsiOotSYGNkiBuPf/k9cEmZrQ/GfJGnfgZb0E7xa0iStdC/y7cRPqCzJc6HffWODg1ERFgrY5KolvMtcKC+SikZgqRIQdEr4gO30joHIClWCMzOIbCQ0t3qzUIyzQl/Wx6lvLWphsemecu3oXxHMjeQNwuJY2c+R79gaLQuy5cPyT5fG7Go9/PAsJLVh/mJxcYlVSjjw1vAojksLkZUmlYUa8fo3SWaGT3EYHiuUOr1PPVdmWB0/xOfLpPB5HyW5V/CxnjnU0qEujwLEV3CBDF/eu9UuFHDEYbPUhpA4Gy37T0xHDM26BVWxlmTm1DJwc8K1W7RdMUS54LgE2gU=
+  file:
+    - ./releases/cuis-linux-x64
+    - ./releases/cuis-darwin-x64
+  on:
+    repo: martjanz/cuis
