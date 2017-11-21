@@ -18,6 +18,8 @@
     "turf": "^3.0.14",
     "viewport-mercator-project": "^4.1.1"
   },
+  "author": "Martín Anzorena",
+  "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

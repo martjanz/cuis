@@ -22,7 +22,7 @@
     "databases"
   ],
   "author": "Martín Anzorena",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/martjanz/cuis/issues"
   },
