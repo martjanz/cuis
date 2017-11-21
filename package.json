@@ -5,8 +5,16 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "build-server": "yarn --cwd server/",
+    "build-ui": "cd ui && yarn && yarn build && cd ..",
     "package-osx":
-      "electron-packager ./ cuis --out=./releases --platform=darwin --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune"
+      "electron-packager ./ cuis --out=./releases --platform=darwin --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
+    "package-osx":
+      "electron-packager ./ cuis --out=./releases --platform=darwin --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
+    "package-linux":
+      "electron-packager ./ cuis --out=./releases --platform=linux --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
+    "package-windows":
+      "electron-packager ./ cuis --out=./releases --platform=win32 --arch=x64 --icon=./cuis.icns --overwrite --asar --prune"
   },
   "repository": {
     "type": "git",
