@@ -34,9 +34,9 @@ deploy:
   provider: releases
   api_key:
     secure: WxuLswlS6v3INJV8mxwa64JYsPQnjbGyz6co+d7h95CH/UyX0Z1gysxYjpNk9Jetv35GA6jVcK9TyEZKYf3FxTrw7HLkYOkBT7r4c2jPtdTf2N43Ez6ni/ATFcEnLJ7OoLTQ4o44oKKmJeHlQ0Ku8EznBU5N/zdfdtBhyLAcxmQImyqssOOm55XdZxLQWYGUjd8NJbyDNtEOp12wDeiE7COOzIE1w88kGQQ9BhQSO0XRGiphl2Am2uLs+ntfAFNbLMiVg5exC+zGrEWfgtbRKt1oCDEvm0dtVmgEQCkVXCiLF2po6FrRMwTMOm4NY1/b3PwNZcbdj0Nu+M1ZFHLoVqcrHsiOotSYGNkiBuPf/k9cEmZrQ/GfJGnfgZb0E7xa0iStdC/y7cRPqCzJc6HffWODg1ERFgrY5KolvMtcKC+SikZgqRIQdEr4gO30joHIClWCMzOIbCQ0t3qzUIyzQl/Wx6lvLWphsemecu3oXxHMjeQNwuJY2c+R79gaLQuy5cPyT5fG7Go9/PAsJLVh/mJxcYlVSjjw1vAojksLkZUmlYUa8fo3SWaGT3EYHiuUOr1PPVdmWB0/xOfLpPB5HyW5V/CxnjnU0qEujwLEV3CBDF/eu9UuFHDEYbPUhpA4Gy37T0xHDM26BVWxlmTm1DJwc8K1W7RdMUS54LgE2gU=
-  file:
-    - ./releases/cuis-linux-x64.zip
-    - ./releases/cuis-darwin-x64.zip
+  file: ./releases/*
+  file_glob: true
+  overwrite: true
   skip_cleanup: true
   on:
     repo: martjanz/cuis
