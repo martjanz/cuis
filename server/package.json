@@ -2,8 +2,11 @@
   "name": "cuis",
   "version": "1.0.0",
   "description": "PostGIS user interface - Spatial data viewer",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -25,7 +28,11 @@
   },
   "homepage": "https://gitlab.com/martjanz/cuis#README",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "pg-promise": "^7.1.0"
   },
   "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
