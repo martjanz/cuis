@@ -20,7 +20,7 @@ class DeckGLOverlay extends Component {
       longitude: -57.969,
       zoom: 7,
       maxZoom: 16,
-      pitch: 45,
+      pitch: 30,
       bearing: 0
     }
   }

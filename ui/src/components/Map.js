@@ -2,6 +2,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import MapGL, { NavigationControl } from 'react-map-gl'
+import { PerspectiveMercatorViewport } from 'viewport-mercator-project'
+import Turf from 'turf'
+
 import DeckGLOverlay from './DeckglOverlay.js'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -39,7 +42,7 @@ class Map extends Component {
   _resize() {
     this._onViewportChange({
       width: window.innerWidth / 2,
-      height: window.innerHeight - 60
+      height: window.innerHeight - 70
     })
   }
 
@@ -63,6 +66,41 @@ class Map extends Component {
       coordinates: info.lngLat,
       info: this.props.tableData[info.index]
     })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.geojson) {
+      // Current viewport
+      let stateViewport = this.state.viewport
+
+      // Returns envelope as GeoJSON
+      const envelope = Turf.envelope(nextProps.geojson)
+
+      // Get opposite vertices from envolving rectangle
+      const bbox = [
+        envelope.geometry.coordinates[0][0],
+        envelope.geometry.coordinates[0][2]
+      ]
+
+      let plainViewport = new PerspectiveMercatorViewport({
+        width: this.state.viewport.width,
+        height: this.state.viewport.height
+      }).fitBounds(bbox, { padding: 10 })
+
+      // Replace only desired new viewport settings
+      // TODO: It will be a nice feature to opt-out which viewport settings
+      // should be recalculated on new queries. This feature could help to not
+      // lose the current viewport (map position, orientation, pitch...)
+      stateViewport = {
+        ...stateViewport,
+        zoom: plainViewport.zoom,
+        center: plainViewport.center,
+        latitude: plainViewport.latitude,
+        longitude: plainViewport.longitude
+      }
+
+      this.setState({ viewport: stateViewport })
+    }
   }
 
   render() {

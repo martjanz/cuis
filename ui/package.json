@@ -14,7 +14,9 @@
     "react-scripts": "1.0.14",
     "react-shortcuts": "^2.0.0",
     "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.75.1"
+    "semantic-ui-react": "^0.75.1",
+    "turf": "^3.0.14",
+    "viewport-mercator-project": "^4.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
