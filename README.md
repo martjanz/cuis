@@ -14,7 +14,7 @@ application.
 
 ### Desktop app
 
-[Download the app for your platform from here.](https://github.com/martjanz/cuis/releases)
+[Download the app for your platform.](https://github.com/martjanz/cuis/releases)
 
 Currently we have builds for Linux and Mac OS only but wait! I'm working on a
 Windows build and in the meantime you can use the app with a local client-server
@@ -59,6 +59,6 @@ yarn start
 ### Frontend server (React)
 
 ```bash
-cd server
+cd ui
 yarn start
 ```
