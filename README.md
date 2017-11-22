@@ -41,7 +41,7 @@ setup.
 #### Steps
 
 ```bash
-git clone https://github.com/martjanz/cuis
+git clone --depth=1 https://github.com/martjanz/cuis
 cd cuis
 yarn build
 yarn serve
