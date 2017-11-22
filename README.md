@@ -30,7 +30,7 @@ setup.
 
 * _yarn_ package manager.
 
-  With Node 6+ installed run `npm install yarn`.
+  With Node 6+ installed run `npm install -g yarn`.
 
 * git. _Optional_
 
@@ -62,3 +62,12 @@ yarn start
 cd ui
 yarn start
 ```
+
+### Electron builds
+
+```bash
+yarn build
+yarn package-all
+```
+
+Builds will be stored on `./releases`
