@@ -9,14 +9,14 @@
     "serve": "cd server && OPEN_BROWSER=true yarn start",
     "build-server": "yarn --cwd server/",
     "build-ui": "cd ui && yarn && yarn build && cd ..",
-    "package-osx":
-      "electron-packager ./ cuis --out=./releases --platform=darwin --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
+    "package-all":
+      "electron-packager ./ cuis --out=./releases --platform=all --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
     "package-osx":
       "electron-packager ./ cuis --out=./releases --platform=darwin --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
     "package-linux":
       "electron-packager ./ cuis --out=./releases --platform=linux --arch=x64 --icon=./resources/cuis.icns --overwrite --asar --prune",
     "package-windows":
-      "electron-packager ./ cuis --out=./releases --platform=win32 --arch=x64 --icon=./cuis.icns --overwrite --asar --prune"
+      "electron-packager ./ cuis --out=./releases --platform=win32 --arch=x64 --icon=./resources/cuis-256.ico --overwrite --asar --prune"
   },
   "repository": {
     "type": "git",
@@ -29,10 +29,8 @@
     "url": "https://gitlab.com/martjanz/cuis/issues"
   },
   "homepage": "https://gitlab.com/martjanz/cuis#README",
-  "dependencies": {
-    "electron": "^1.7.9"
-  },
   "devDependencies": {
+    "electron": "^1.7.9",
     "electron-packager": "^10.1.0"
   }
 }
