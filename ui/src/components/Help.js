@@ -14,7 +14,7 @@ class Help extends PureComponent {
               To have geographic data displayed on the map you need: <br />
               <List bulleted>
                 <List.Item>
-                  A <code>geojson</code> field
+                  A <code>geojson</code> field named <em>geojson</em>
                 </List.Item>
                 <List.Item>
                   <code>NULL</code> or valid GeoJSON feature on every row
