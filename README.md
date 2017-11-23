@@ -14,13 +14,9 @@ application.
 
 ### Desktop app
 
-[Download the app for your platform.](https://github.com/martjanz/cuis/releases)
+[Download the app for your platform (Linux / Mac / Windows).](https://github.com/martjanz/cuis/releases)
 
-Currently we have builds for Linux and Mac OS only but wait! I'm working on a
-Windows build and in the meantime you can use the app with a local client-server
-setup.
-
-### Local client-server
+### Local client server
 
 #### Requirements
 
@@ -32,9 +28,9 @@ setup.
 
   With Node 6+ installed run `npm install -g yarn`.
 
-* git. _Optional_
+* _Optional._ git. [Download](https://git-scm.com/)
 
-  If don't want to install anything else just
+  If you don't want to install anything else just
   [download the source code as a zip file](https://github.com/martjanz/cuis/archive/master.zip),
   unzip it and skip `git clone` step.
 
