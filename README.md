@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/martjanz/cuis.svg?branch=master)](https://travis-ci.org/martjanz/cuis)
 
-Aiming to have a simple and dependency-free tool to visualize PostGIS queries I started this project. (QGIS)[http://www.qgis.org/en/site/] is enormously more powerful and complex but usually is a bit a pain in the @=! to download and install all those things just to see the result of a simple PostGIS query on a map, particularly on Mac OS (November 2017).
+Aiming to have a simple and dependency-free tool to visualize PostGIS queries I started this project. [QGIS](http://www.qgis.org/en/site/) is an enormously more powerful and complex but usually is a bit a pain in the @=! to download and install all those things just to see the result of a simple PostGIS query on a map, particularly on Mac OS (November 2017).
 
-There is (another similar project)[https://github.com/lukasmartinelli/postgis-editor] which I consider to fork if you want to take a look. I didn't do it and started this one from scratch because I wanted to be able to run the _¿stack?_ both as a desktop application and as a client-server web application.
+There is [another similar project](https://github.com/lukasmartinelli/postgis-editor) which I consider to fork but I didn't and started this one from scratch because I wanted to be able to run the _¿stack?_ both as a desktop application and as a client-server web application.
 
 That's the _why_.
 
