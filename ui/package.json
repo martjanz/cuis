@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "codemirror": "^5.31.0",
     "deck.gl": "^4.1.5",
     "luma.gl": "^4.0.5",
