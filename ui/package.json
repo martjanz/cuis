@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
-    "codemirror": "^5.31.0",
+    "codemirror": "^5.58.2",
     "deck.gl": "^4.1.5",
     "luma.gl": "^4.0.5",
     "react": "^16.0.0",
