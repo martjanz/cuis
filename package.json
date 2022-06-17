@@ -30,7 +30,7 @@
   },
   "homepage": "https://gitlab.com/martjanz/cuis#README",
   "devDependencies": {
-    "electron": "^1.7.9",
+    "electron": "^15.5.5",
     "electron-packager": "^10.1.0"
   }
 }
